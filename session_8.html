@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Session 8</title>
+  </head>
+  <body>
+    <h1 style="color:blue;">For now Let's start Javascript</h1>
+    <div id ="footer">
+    </div>
+    <input type="button" name="click" value="Click Me" onclick="alert('This makes me dynamic and useful in real world - click event')">
+    <script type="text/javascript">
+      // alert("hello world from js")  - no need of var now;
+      var date = new Date();
+
+      document.write("<br /><strong>Local time:</strong> " + date + "<br/>");
+    </script>
+  </body>
+</html>
+<!--
+There are actually four different places where you might use scripts:
+. In the body of the page—In this case, the script’s output is displayed
+as part of the HTML document when the browser loads the page.
+. In the header of the page between the <head> tags—Scripts in the
+header can’t create output within the HTML document, but can be
+referred to by other scripts. The header is often used for functions—
+groups of JavaScript statements that can be used as a single unit. You
+will learn more about functions in Chapter 14, “Getting Started with
+JavaScript Programming.”
+. Within an HTML tag, such as <body> or <form> —This is called an
+event handler and enables the script to work with HTML elements.
+When using JavaScript in event handlers, you don’t need to use the
+<script> tag. You’ll learn more about event handlers in Chapter 14.
+. In a separate file entirely—JavaScript supports the use of files with
+the .js extension containing scripts; these can be included by specify-
+ing a file in the <script> tag.
+
+
+. In Firefox, you can also select Tools, JavaScript Console from the
+menu. The console is shown in Figure 4.4, displaying the error mes-
+sage you created in this example.
+. In Chrome, select Tools, JavaScript Console from the Customizations
+(Options) menu. A console will display in the bottom of the browser
+window.
+. In Internet Explorer, select Tools, Internet Options. On the Advanced
+page, uncheck the Disable Script Debugging box and check the
+Display a Notification About Every Script Error box. (If this is dis-
+abled, a yellow icon in the status bar will still notify you of errors.)
+-->
