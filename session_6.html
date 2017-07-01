@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Session 6</title>
+  </head>
+  <body style="background-color:grey">
+    <a href="session_5.html">Back </a>
+    <h1>
+      CSS overview
+    </h1>
+    <div>
+      <p>
+        CSS includes various style properties that are used to control fonts, colors,
+        alignment, and margins, to name just a few. The style properties in CSS can
+        be generally grouped into two major categories:
+      </p>
+      <ul>
+        <li>
+          Layout properties Consist of properties that affect the positioning of elements on a web page, such as margins, padding, alignment, and so on.
+        </li>
+        <li>
+          Formatting properties Consist of properties that affect the visual
+          display of elements within a website, such as the font type, size,
+          color, and so on
+        </li>
+      </ul>
+      <h1>
+        Layout Properties
+      </h1>
+      <p>
+        CSS layout properties are used to determine how content is placed on a
+        web page. One of the most important layout properties is the display
+        property, which describes how an element is displayed with respect to
+        other elements. There are four possible values for the display property
+      </p>
+      <ol>
+        <li>
+          block - The element is displayed on a new line, as in a new paragraph.
+        </li>
+        <li>
+          list-item - The element is displayed on a new line with a list-item
+          mark (bullet) next to it.
+        </li>
+        <li>
+          inline - The element is displayed inline with the current paragraph.
+        </li>
+        <li>
+          none - The element is not displayed; it is hidden.
+        </li>
+      </ol>
+      <p>
+        The display property relies on a concept known as relative positioning, which means that elements are positioned relative to the location of other elements on a page. CSS also supports absolute positioning, which enables you to place an element at an exact location on a page independent of other elements.
+      </p>
+      <hr />
+      <h1>
+        Formatting Properties
+      </h1>
+      <div style="border-style:solid;border-width:2px;border-color:blue">
+        CSS formatting properties are used to control the appearance of content on a web page, as opposed to controlling the physical positioning of the content. One of the most popular formatting properties is the border property
+      </div>
+      <ul style="list-style-type: square;">
+        The following border properties provide a means of describing the borders of an element:
+        <li>
+          border-width - The width of the border edge
+        </li>
+        <li>
+          border-color - The color of the border edge
+        </li>
+        <li>
+          border-style - The style of the border edge
+        </li>
+        <li>
+          border-left - The left side of the border
+        </li>
+        <li>
+          border-right - The right side of the border
+        </li>
+        <li>
+          border-top - The top of the border
+        </li>
+        <li>
+          border-bottom - The bottom of the border
+        </li>
+        <li>
+          border - All the border sides
+        </li>
+
+    </div>
+  </body>
+</html>
+<!--
+Comments if any
+Before showing you a style class, I need to take a quick step back and clarify
+some CSS terminology. First off, a CSS style property is a specific style that
+can be assigned a value, such as color or font-size . You associate a style
+property and its respective value with elements on a web page by using a
+selector. A selector is used to identify tags on a page to which you apply
+styles. Following is an example of a selector, a property, and a value all
+included in a basic style rule:
+h1 { font: 36pt Courier; }
+In this code, h1 is the selector, font is the style property, and 36pt Courier
+is the value. The selector is important because it means that the font setting
+will be applied to all h1 elements in the web page. But maybe you want to
+differentiate between some of the h1 elements—what then? The answer lies
+in style classes.
+Suppose you want two different kinds of <h1> headings for use in your doc-
+uments. You would create a style class for each one by putting the following
+CSS code in a style sheet:
+h1.silly { font: 36pt Comic Sans; }
+h1.serious { font: 36pt Arial; }
+Classes and ID for style
+. - for classes
+#- for id
+
+-->
