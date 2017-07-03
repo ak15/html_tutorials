@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Session 15</title>
+  </head>
+  <body class="change-color">
+    <h1 style="color:blue;">Dynamic Web!!</h1>
+    <input type="button" value="Click Me" onclick="changeColor();">
+    <script type="text/javascript">
+      function changeColor()
+      {
+        document.getElementsByClassName("change-color")[0].style.backgroundColor="red"
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+<!--
+Javascript
+JavaScript supports conditional statements, which enable you to answer
+questions like this. A typical conditional uses the if statement, as in this
+example:
+if (count==1) alert(“The countdown has reached 1.”);
+
+Loops
+Another useful feature of JavaScript—and most other programming lan-
+guages—is the capability to create loops, or groups of statements that
+repeat a certain number of times. For example, these statements display
+the same alert 10 times, greatly annoying the user:
+for (i=1; i<=10; i++) {
+alert(“Yes, it’s yet another alert!”);
+}
+The for statement is one of several statements JavaScript uses for loops.
+This is the sort of thing computers are supposed to be good at—perform-
+ing repetitive tasks. You will use loops in many of your scripts, in much
+more useful ways than this example.
+
+Event Handlers
+
+
+Understanding the Document Object
+Model (DOM)
+http://staff.cs.upt.ro/~dan/curs/awp/images/jsdom.gif
+
+
+Getting Information About the Document
+Several properties of the document object include information about the
+current document in general:
+. document.URL specifies the document’s URL. This is a simple text
+field. You can’t change this property. If you need to send the user to a
+different location, use the window.location object, which you will
+learn about further along.
+. document.title lists the title of the current page, defined by the
+HTML <title> tag.
+. document.referrer is the URL of the page the user was viewing prior
+to the current page—usually, the page with a link to the current page.
+. document.lastModified is the date the document was last modified.
+This date is sent from the server along with the page.
+. document.cookie enables you to read or set a cookie for the
+document.
+. document.images returns a collection of images used in the
+document.
+
+
+
+
+Using Links and Anchors
+Another child of the document object is the link object. Actually, there can
+be multiple link objects in a document. Each one includes information
+about a link to another location or an anchor.
+You can access link objects with the links array. Each member of the
+array is one of the link objects in the current page. A property of the array,
+document.links.length , indicates the number of links in the page.
+Each link object (or member of the links array) has a list of properties
+defining the URL. The href property contains the entire URL, and other
+properties define portions of it. These are the same properties as the
+location object, defined later in this chapter.
+You can refer to a property by indicating the link number and property
+name. For example, the following statement assigns the entire URL of the
+first link to the variable link1 :
+link1 = links[0].href;
+
+
+
+
+
+The anchor objects are also children of the document object. Each anchor
+object represents an anchor in the current document—a particular location
+that can be jumped to directly.
+Like links, you can access anchors with an array: anchors . Each element of
+this array is an anchor object. The document.anchors.length property
+gives you the number of elements in the anchors array.
+
+
+
+
+
+
+Accessing Browser History
+The history object is another child (property) of the window object. This
+object holds information about the URLs that have been visited before and
+after the current one, and it includes methods to go to previous or next
+locations.
+The history object has one property you can access:
+. history.length keeps track of the length of the history list—in other
+words, the number of different locations that the user has visited.
+The history object has three methods you can use to move through the
+history list:
+. history.go() opens a URL from the history list. To use this method,
+specify a positive or negative number in parentheses. For example,
+history.go(-2) is equivalent to pressing the Back button twice.
+. history.back() loads the previous URL in the history list—equiva-
+lent to pressing the Back button.
+. history.forward() loads the next URL in the history list, if avail-
+able. This is equivalent to pressing the Forward button.
+
+
+
+NOTE
+The history object has cur-
+rent , previous , and next prop-
+erties that store URLs of docu-
+ments in the history list.
+However, for security and priva-
+cy reasons, these objects are
+not normally accessible by
+browsers.
+
+
+Working with the location Object
+A third child of the window object is the location object. This object stores
+information about the current URL stored in the window. For example, the
+following statement loads a URL into the current window:
+window.location.href=”http://www.google.com”;
+
+
+The following properties represent parts of the URL:
+. location.protocol is the protocol part of the URL (http: in the
+example).
+. location.hostname is the host name of the URL (www.google.com
+in the example).
+. location.port is the port number of the URL (80 in the example).
+. location.pathname is the filename part of the URL (search in the
+example).
+. location.search is the query portion of the URL, if any
+(q=javascript in the example).
+CAUTION
+Although the location.href
+property usually contains the
+same URL as the document.URL
+property described earlier in
+this chapter, you can’t change
+the document.URL property.
+Always use location.href to
+load a new page.
+
+Unused in this example but also accessible are
+. location.host is the hostname of the URL plus the port number.
+. location.hash is the anchor name used in the URL, if any (#anchor
+in the example) .
+
+
+The location object has three methods:
+. location.assign() loads a new document when used as follows:
+location.assign(“http://www.google.com”)
+. location.reload() reloads the current document. This is the same
+as the Reload button on the browser’s toolbar. If you optionally
+include the true parameter, it will ignore the browser’s cache and
+force a reload whether the document has changed or not.
+. location.replace() replaces the current location with a new one.
+This is similar to setting the location object’s properties yourself.
+The difference is that the replace method does not affect the brows-
+er’s history. In other words, the Back button can’t be used to go to
+the previous location. This is useful for splash screens or temporary
+pages that it would be useless to return to.
+
+
+Nodes(Object)
+Each node also has a number of basic properties that you can
+examine or set. These include the following:
+. nodeName is the name of the node (not the ID). For nodes based on
+HTML tags, such as <p> or <body> , the name is the tag name: p or
+body . For the document node, the name is a special code: #document .
+Similarly, text nodes have the name #text .
+. nodeType is an integer describing the node’s type: 1 for normal
+HTML tags, 3 for text nodes, and 9 for the document node.
+. nodeValue is the actual text contained within a text node. This prop-
+erty is not valid for other types of nodes.
+. innerHTML is the HTML content of any node. You can assign a value
+including HTML tags to this property and change the DOM child
+objects for a node dynamically.
+
+Node Relationship Properties
+In addition to the basic properties described previously, each node has a
+number of properties that describe its relation to other nodes. These
+include the following:
+. firstChild is the first child object for a node. For nodes that contain
+text, such as h1 or p , the text node containing the actual text is the
+first child.
+. lastChild is the node’s last child object.
+. childNodes is an array that includes all of a node’s child nodes. You
+can use a loop with this array to work with all the nodes under a
+given node.
+. previousSibling is the sibling (node at the same level) previous to
+the current node.
+. nextSibling is the sibling after the current node.
+
+Document Methods
+The document node itself has several methods you might find useful. You
+have already used one of these, getElementById , to refer to DOM objects by
+their ID properties. The document node’s methods include the following:
+. getElementById(id) returns the element with the specified id
+attribute.
+. getElementsByTagName(tag) returns an array of all of the elements
+with a specified tag name. You can use the wildcard * to return an
+array containing all the nodes in the document.
+. createTextNode(text) creates a new text node containing the speci-
+fied text, which you can then add to the document.
+. createElement(tag) creates a new HTML element for the specified
+tag. As with createTextNode , you need to add the element to the
+document after creating it. You can assign content within the element
+by changing its child objects or the innerHTML property.
+Node Methods
+Each node within a page has a number of methods available. Which of
+these are valid depends on the node’s position in the page and whether it
+has parent or child nodes. These include the following:
+. appendChild(new) appends the specified new node after all of the
+object’s existing nodes.
+. insertBefore(new, old) inserts the specified new child node before
+the specified old child node, which must already exist.
+. replaceChild(new, old) replaces the specified old child node with
+a new node.
+. removeChild(node) removes a child node from the object’s set of
+children.
+. hasChildNodes() returns a Boolean value of true if the object has one
+or more child nodes or false if it has none.
+. cloneNode() creates a copy of an existing node. If a parameter of
+true is supplied, the copy will also include any child nodes of the
+original node.
+
+ -->

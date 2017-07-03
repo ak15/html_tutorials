@@ -1,0 +1,274 @@
+<!-- Understanding the CSS Box Model and Positioning
+
+css box model = https://www.codeproject.com/KB/HTML/567385/boxmodel-image.png
+Here’s yet another explanation of the box model, going from the outside
+inward:
+. The margin is the area outside of the element. It never has color; it is
+always transparent.
+. The border extends around the element, on the outer edge of any
+padding. The border can be of several types, widths, and colors.
+. The padding exists around the content and inherits the background
+color of the content area.
+. The content is surrounded by padding.
+
+Here’s where the tricky part comes in: To know the true height and width of
+an element, you have to take all the elements of the box model into account.
+If you remember the example previous when, despite
+specifically indicating a <div> should be 250 pixels wide and 100 pixels high,
+that <div> had to grow larger to accommodate the padding in use.
+
+The total width of an element is the sum of the following:
+width + padding-left + padding-right + border-left + border-right +
+margin-left + margin-right
+
+
+The total height of an element is the sum of the following:
+height + padding-top + padding-bottom + border-top + border-bottom +
+margin-top + margin-bottom
+
+The Whole Scoop on Positioning
+
+Relative positioning is the default type of positioning used by HTML. You
+can think of relative positioning as being akin to laying out checkers on a
+checkerboard: The checkers are arranged from left to right, and when you
+get to the edge of the board, you move on to the next row. Elements that
+are styled with the block value for the display style property are automat-
+ically placed on a new row, whereas inline elements are placed on the
+same row immediately next to the element preceding them. As an exam-
+ple, <p> and <div> tags are considered block elements, whereas the <span>
+tag is considered an inline element.
+
+The other type of positioning supported by CSS is known as absolute position-
+ing because it enables you to set the exact position of HTML content on a
+page. Although absolute positioning gives you the freedom to spell out exact-
+ly where an element is to appear, the position is still relative to any parent
+elements that appear on the page. In other words, absolute positioning
+enables you to specify the exact location of an element’s rectangular area with
+respect to its parent’s area, which is very different from relative positioning.
+With the freedom of placing elements anywhere you want on a page, you
+can run into the problem of overlap, which is when an element takes up
+space used by another element. There is nothing stopping you from speci-
+fying the absolute locations of elements so they overlap. In this case, CSS
+relies on the z-index of each element to determine which element is on the
+top and which is on the bottom. You’ll learn more about the z-index of ele-
+ments later in the chapter. For now, let’s look at exactly how you control
+whether a style rule uses relative or absolute positioning.
+The type of positioning (relative or absolute) used by a particular style rule
+is determined by the position property, which is capable of having one of
+the following two values: relative or absolute . After specifying the type
+of positioning, you then provide the specific position using the following
+properties:
+. left —The left position offset
+. right —The right position offset
+. top —The top position offset
+. bottom —The bottom position offset
+
+
+
+ -->
+
+
+<!-- Before tackling page layout, however, it is important to understand four
+particular CSS properties individually before putting them all together:
+. The margin and padding properties—For adding space around ele-
+ments
+. The align and float properties—Used to place your elements in
+relation to others
+
+Using Margins
+Style sheet margins enable you to add empty space around the outside of the
+rectangular area for an element on a web page. It is important to remember
+that the margin property works with space outside of the element.
+Following are the style properties for setting margins:
+. margin-top —Sets the top margin
+. margin-right —Sets the right margin
+. margin-bottom —Sets the bottom margin
+. margin-left —Sets the left margin
+. margin —Sets the top, right, bottom, and left margins as a single
+property
+We want the margin around each <div> to be 15 pixels on all sides,
+so we can use the following:
+margin-top:15px;
+margin-right:15px;
+margin-bottom:15px;
+margin-left:15px;
+You could also write that in shorthand, using the margin property:
+margin:15px 15px 15px 15px;
+
+Padding Elements
+Padding is similar to margins in that it adds extra space to elements, but the
+big difference is where that space is located. If you recall, margins are added
+to the outside of elements. On the other hand, padding adds space inside the
+rectangular area of an element. As an example, if you create a style rule for
+an element that establishes a width of 50 pixels and a height of 30 pixels,
+and then sets the padding of the rule to 5 pixels, the remaining content area
+will be 40 pixels by 20 pixels. Also, because the padding of an element
+appears within the element’s content area, it will assume the same style as
+the content of the element, including the background color.
+
+
+You specify the padding of a style rule using one of the padding properties,
+which work very much like the margin properties. The following padding
+properties are available for use in setting the padding of style rules:
+. padding-top —Sets the top padding
+. padding-right —Sets the right padding
+. padding-bottom —Sets the bottom padding
+. padding-left —Sets the left padding
+. padding —Sets the top, right, bottom, and left padding as a single
+property
+As with margins, you can set the padding of style rules using individual
+padding properties or the single padding property. Padding can also be
+expressed using either a unit of measurement or a percentage.
+Following is an example of how you might set the left and right padding
+for a style rule so that there are 10 pixels of padding on each side of an ele-
+ment’s content:
+padding-left:10px;
+padding-right:10px;
+As with margins, you can set all the padding for an element with a single
+property (the padding property). To set the padding property, you can use
+the same three approaches available for the margin property. Following is
+an example of how you would set the vertical padding (top/bottom) to 12
+pixels and the horizontal padding (left/right) to 8 pixels for a style rule:
+padding:12px 8px;
+Following is more explicit code that performs the same task by specifying
+all the padding values:
+padding:12px 8px 12px 8px;
+
+. Just remember: margins outside the element, padding inside it.
+
+Keeping Everything Aligned
+
+Keeping Everything Aligned
+Knowing that content on a web page doesn’t always fill the entire width of
+the rectangular area in which it is displayed, it is often helpful to control
+the alignment of the content. Even if text within a rectangular area extends
+to multiple lines, alignment still enters the picture because you might want
+the text left-justified, right-justified, or centered. There are two style prop-
+erties that enable you to control the alignment of elements: text-align
+and vertical-align .
+
+As a refresher, using text-align aligns an element horizontally within its
+bounding area, and it can be set to left , right , center , or justify .
+
+
+The vertical-align property is similar to text-align except that it is
+used to align elements vertically. The vertical-align property specifies
+how an element is aligned with its parent, or in some cases, the current
+line of elements on the page. Current line refers to the vertical placement
+of elements that appear within the same parent element—in other words,
+
+inline elements. If several inline elements appear on the same line, you can
+set their vertical alignments the same to align them vertically. A good
+example would be a row of images that appear one after the next—the
+vertical-align property enables you to align them vertically.
+
+Following are common values for use with the vertical-align property:
+. top —Aligns the top of an element with the current line
+. middle —Aligns the middle of an element with the middle of its parent
+. bottom —Aligns the bottom of an element with the current line
+. text-top —Aligns the top of an element with the top of its parent
+. baseline —Aligns the baseline of an element with the baseline of its
+parent
+. text-bottom —Aligns
+
+Understanding the Float Property
+
+Understanding the float property is fundamental to understanding CSS-
+based layout and design; it is one of the last pieces in the puzzle of how all
+these elements fit together.
+
+Elements float horizontally, not vertically, so all you have to concern yourself
+with are two possible values: right and left . When used, an element that
+floats will float as far right or as far left (depending on the value of float ) as
+the containing element will allow it. For example, if you have three <div> s
+float values of left, they will all line up to the left of the containing body ele-
+ment. If you have your <div> s within another <div> , they will line up to the
+left of that element, even if that element itself is floated to the right.
+
+
+
+Controlling the Way Things Stack Up
+
+There are situations in which you’d like to carefully control the manner in
+which elements overlap each other on a web page. The z-index style prop-
+erty enables you to set the order of elements with respect to how they
+stack on top of each other. Although the name z-index might sound a little
+strange, it refers to the notion of a third dimension (Z) that points into the
+computer screen, in addition to the two dimensions that go across (X) and
+down (Y) the screen. Another way to think of the z-index is the relative
+position of a single magazine within a stack of magazines. A magazine
+near the top of the stack has a higher z-index than a magazine lower in the
+stack. Similarly, an overlapped element with a higher z-index is displayed
+on top of an element with a lower z-index.
+
+
+Managing the Flow of Text
+
+Following are some
+style properties that provide you with control over text flow:
+. float —Determines how text flows around an element
+. clear —Stops the flow of text around an element
+. overflow —Controls the overflow of text when an element is too
+small to contain all the text
+The float property is used to control how text flows around an element. It
+can be set to either left or right . These values determine where to posi-
+tion an element with respect to flowing text. So, setting an image’s float
+property to left positions the image to the left of flowing text.
+
+The float property is used to control how text flows around an element. It
+can be set to either left or right . These values determine where to posi-
+tion an element with respect to flowing text. So, setting an image’s float
+property to left positions the image to the left of flowing text.
+
+The overflow property handles overflow text, which is text that doesn’t fit
+within its rectangular area; this can happen if you set the width and
+height of an element too small. The overflow property can be set to
+visible , hidden , or scroll . The visible setting automatically enlarges the
+element so that the overflow text will fit within it; this is the default setting
+
+ -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Session 14</title>
+    <style type="text/css">
+      div {
+      position:absolute;
+      /*position:relative;*/
+      width:250px;
+      height:100px;
+      border:1px solid #000;
+      color:black;
+      font-weight:bold;
+      text-align:center;
+      }
+      div#d1 {
+      background-color: red;
+      left: 0px;
+      /*z-index: 1;*/
+      }
+      div#d2 {
+      background-color:green;
+      left: 80px;
+      top: 25px;
+      }
+      div#d3 {
+      background-color:blue;
+      left: 150px;
+      top: 50px;
+      }
+      div#d4 {
+      background-color:yellow;
+      left: 250px;
+      top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="d1">DIV 1</div>
+    <div id="d2">DIV 2</div>
+    <div id="d3">DIV 3</div>
+    <div id="d4">DIV 4</div>
+  </body>
+</html>
+
